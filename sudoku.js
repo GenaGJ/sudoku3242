@@ -1,3 +1,4 @@
+const { match } = require('assert');
 const { EOL } = require('os');
 
 /**
@@ -7,18 +8,36 @@ const { EOL } = require('os');
  */
 function solve(boardString) {
   const arrOfSudoku = [];
-  const board = boardString.split('');
+  const board = boardString.trim().split('');
   for (let i = 0; i < boardString.length; i += 9) {
     arrOfSudoku.push(board.slice(i, i + 9));
   }
-  console.table(arrOfSudoku);
+  const nunbers = [1,2,3,4,5,6,7,8,9]
+  // const nunbers2 = Math.floor(Math.random()*10)
+for(let i = 0; i < 9 ;i++ ) {
+  for(let j = 0; j < arrOfSudoku[0].length;j++){
+    if(arrOfSudoku[i][j] === "-" ) {
+  
+      arrOfSudoku[i][j] = Math.floor(Math.random()*(9 - 1) + 1)
+    }
+  }
 }
+console.table(arrOfSudoku)
+
+}
+
+
+ 
+
 
 /**
  * Принимает игровое поле в том формате, в котором его вернули из функции solve.
  * Возвращает булевое значение — решено это игровое поле или нет.
  */
-function isSolved(board) {}
+
+function isSolved(board) {
+
+}
 
 /**
  * Принимает игровое поле в том формате, в котором его вернули из функции solve.
